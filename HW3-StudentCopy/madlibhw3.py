@@ -10,10 +10,11 @@
 # 1) Print the orginal text (150 tokens)
 # 1) Print the new text
 debug = False #True
-
 print("START*******")
 import nltk # requires some downloading/installing dependencies to use all its features; numpy is especially tricky to install
 import random
+
+
 
 # import nltk
 nltk.download('punkt') #ask how to check environmental variables
@@ -21,13 +22,13 @@ nltk.download('punkt') #ask how to check environmental variables
 
 from nltk import word_tokenize,sent_tokenize
 from nltk.book import *
-first150 = text2[:151]
+first150 = text2[:150]
 
-print("first150")
+print("Original Text")
 print(first150)
 tagged_tokens = nltk.pos_tag(first150) # gives us a tagged list of tuples
-print("TAGGED TOKENS")
-print(tagged_tokens)
+#print("TAGGED TOKENS")
+#print(tagged_tokens)
 if debug:
 	print ("First few tagged tokens are:")
 	for tup in tagged_tokens[:5]: #printing word and part of speech
