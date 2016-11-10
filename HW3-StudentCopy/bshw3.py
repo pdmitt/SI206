@@ -29,13 +29,6 @@ a = a.replace("student", "AMAZING student")
 
 a = a.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "missny.jpg")
 
-a = a.replace("https://raw.githubusercontent.com/cvanlent/SI206/master/HW3-StudentCopy/media/logo.png","media/logo.png")
+a = a.replace("http://collemc.people.si.umich.edu/data/logo2.png","media/logo.png")
 
 fout.write(a)
-
-# fout = open('output.html', 'w')
-# fout.write(result)
-# fout.close()
-
-
-
