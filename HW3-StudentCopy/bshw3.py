@@ -17,48 +17,25 @@ import urllib.request, urllib.parse, urllib.error
 import requests
 from bs4 import BeautifulSoup
 import re
-url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
-def webpage(base_url):
-	fout = open('output.html', 'w')
-	html = urllib.request.urlopen(base_url).read()
-	soup = BeautifulSoup(html, 'html.parser')
-#y = soup.find_all('p') #soup holds contents
-
-i = soup.prettify()
-
-result = re.sub("student", "AMAZING student", i)
-
-
-
-
-
-#Part 2: photo update
-link = soup.find_all('img')
-
-for i in link:
-	href = i["src"]
-	if (href) == "https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg":
-		# print (href)
-		i["src"] = "https://scontent.fdet1-2.fna.fbcdn.net/v/t1.0-9/1504052_952647654753348_7815196908917410115_n.jpg?oh=509d12dab7aa7f8352b70d3bebf42451&oe=58C98A2C"
-		# print(a["src"])
-
-#Part 3: Smaller photo updates
-for i in link:
-	href = i["src"]
-	if not href.startswith("https:"):
-		print("before changing",i["src"])
-		i["src"] = "https://raw.githubusercontent.com/cvanlent/SI206/master/HW3-StudentCopy/media/logo.png"
-		print(i["src"])
-
-result = str(soup)
-
-
-
-fout.write(result)
 
 fout = open('output.html', 'w')
-fout.write(result)
-fout.close()
+base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
+html = urllib.request.urlopen(base_url).read()
+soup = BeautifulSoup(html, 'html.parser')
+#y = soup.find_all('p') #soup holds contents
+
+a = soup.prettify() #html_doc
+a = a.replace("student", "AMAZING student")
+
+a = a.replace("https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg", "missny.jpg")
+
+a = a.replace("https://raw.githubusercontent.com/cvanlent/SI206/master/HW3-StudentCopy/media/logo.png","media/logo.png")
+
+fout.write(a)
+
+# fout = open('output.html', 'w')
+# fout.write(result)
+# fout.close()
 
 
 

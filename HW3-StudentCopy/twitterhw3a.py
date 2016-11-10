@@ -16,9 +16,10 @@ auth.set_access_token(access_token,access_token_secret)
 
 api = tweepy.API(auth)
 
-status = "#UMSI #206 #Proj3"
-api.update_with_media("paigepic.jpg", status=status)
+hashtags = "#UMSI-206 #Proj3"
+try:
+	api.update_with_media("teacup.jpg", status=hashtags)
+	print ("Check the image on Twitter!")
+except:
+	print ("Sorry, an error occurred uploading your image.")
 # You will demo this live for grading.
-
-print("""No output necessary although you 
-	can print out a success/failure message if you want to.""")
